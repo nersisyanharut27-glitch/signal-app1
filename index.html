@@ -1,151 +1,226 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Signal App</title>
 
+<script src="https://s3.tradingview.com/tv.js"></script>
+
 <style>
 
 body{
-background:#0f172a;
-font-family:Arial;
-color:white;
-margin:0;
-padding:20px;
-}
-
-h1{
-text-align:center;
-margin-bottom:30px;
-font-size:40px;
+    margin:0;
+    padding:10px;
+    background:#0f172a;
+    font-family:Arial;
+    color:white;
 }
 
 .card{
-background:#1e293b;
-padding:20px;
-border-radius:25px;
-margin-bottom:30px;
+    background:#1e293b;
+    border-radius:20px;
+    padding:12px;
+    margin-bottom:14px;
 }
 
 .title{
-font-size:36px;
-font-weight:bold;
-text-align:center;
-margin-bottom:15px;
+    text-align:center;
+    font-size:26px;
+    font-weight:bold;
+    margin-bottom:10px;
 }
 
-iframe{
-width:100%;
-height:500px;
-border:none;
-border-radius:20px;
+.graph{
+    width:100%;
+    height:220px;
+    border-radius:15px;
+    overflow:hidden;
 }
 
 .timer{
-font-size:30px;
-text-align:center;
-margin-top:15px;
-color:#22c55e;
-font-weight:bold;
+    margin-top:10px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    color:#22c55e;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<h1>🚀 SIGNAL APP</h1>
+<!-- BTC -->
 
 <div class="card">
 
-<div class="title">
-📈 BTCUSDT
-</div>
+    <div class="title">📈 BTCUSDT</div>
 
-<iframe src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=5&theme=dark"></iframe>
+    <div id="btc_graph" class="graph"></div>
 
-<div class="timer" id="timer1">
-⏳ Loading...
-</div>
+    <div class="timer">
+        ⏰ Փակվելու մնաց → 2:00
+    </div>
 
 </div>
+
+<!-- ETH -->
 
 <div class="card">
 
-<div class="title">
-📈 ETHUSDT
-</div>
+    <div class="title">📈 ETHUSDT</div>
 
-<iframe src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:ETHUSDT&interval=5&theme=dark"></iframe>
+    <div id="eth_graph" class="graph"></div>
 
-<div class="timer" id="timer2">
-⏳ Loading...
-</div>
+    <div class="timer">
+        ⏰ Փակվելու մնաց → 2:00
+    </div>
 
 </div>
+
+<!-- SOL -->
 
 <div class="card">
 
-<div class="title">
-📈 SOLUSDT
-</div>
+    <div class="title">📈 SOLUSDT</div>
 
-<iframe src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:SOLUSDT&interval=5&theme=dark"></iframe>
+    <div id="sol_graph" class="graph"></div>
 
-<div class="timer" id="timer3">
-⏳ Loading...
-</div>
+    <div class="timer">
+        ⏰ Փակվելու մնաց → 2:00
+    </div>
 
 </div>
+
+<!-- BNB -->
 
 <div class="card">
 
-<div class="title">
-📈 BNBUSDT
+    <div class="title">📈 BNBUSDT</div>
+
+    <div id="bnb_graph" class="graph"></div>
+
+    <div class="timer">
+        ⏰ Փակվելու մնաց → 2:00
+    </div>
+
 </div>
 
-<iframe src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:BNBUSDT&interval=5&theme=dark"></iframe>
+<!-- XRP -->
 
-<div class="timer" id="timer4">
-⏳ Loading...
+<div class="card">
+
+    <div class="title">📈 XRPUSDT</div>
+
+    <div id="xrp_graph" class="graph"></div>
+
+    <div class="timer">
+        ⏰ Փակվելու մնաց → 2:00
+    </div>
+
 </div>
+
+<!-- DOGE -->
+
+<div class="card">
+
+    <div class="title">📈 DOGEUSDT</div>
+
+    <div id="doge_graph" class="graph"></div>
+
+    <div class="timer">
+        ⏰ Փակվելու մնաց → 2:00
+    </div>
 
 </div>
 
 <script>
 
-function updateTimers(){
+new TradingView.widget({
+    "autosize": true,
+    "symbol": "BINANCE:BTCUSDT",
+    "interval": "5",
+    "timezone": "Etc/UTC",
+    "theme": "dark",
+    "style": "1",
+    "locale": "en",
+    "hide_top_toolbar": true,
+    "hide_legend": true,
+    "save_image": false,
+    "container_id": "btc_graph"
+});
 
-const now = new Date();
+new TradingView.widget({
+    "autosize": true,
+    "symbol": "BINANCE:ETHUSDT",
+    "interval": "5",
+    "timezone": "Etc/UTC",
+    "theme": "dark",
+    "style": "1",
+    "locale": "en",
+    "hide_top_toolbar": true,
+    "hide_legend": true,
+    "save_image": false,
+    "container_id": "eth_graph"
+});
 
-const minutes = now.getMinutes();
+new TradingView.widget({
+    "autosize": true,
+    "symbol": "BINANCE:SOLUSDT",
+    "interval": "5",
+    "timezone": "Etc/UTC",
+    "theme": "dark",
+    "style": "1",
+    "locale": "en",
+    "hide_top_toolbar": true,
+    "hide_legend": true,
+    "save_image": false,
+    "container_id": "sol_graph"
+});
 
-const seconds = now.getSeconds();
+new TradingView.widget({
+    "autosize": true,
+    "symbol": "BINANCE:BNBUSDT",
+    "interval": "5",
+    "timezone": "Etc/UTC",
+    "theme": "dark",
+    "style": "1",
+    "locale": "en",
+    "hide_top_toolbar": true,
+    "hide_legend": true,
+    "save_image": false,
+    "container_id": "bnb_graph"
+});
 
-const remainMinutes = 4 - (minutes % 5);
+new TradingView.widget({
+    "autosize": true,
+    "symbol": "BINANCE:XRPUSDT",
+    "interval": "5",
+    "timezone": "Etc/UTC",
+    "theme": "dark",
+    "style": "1",
+    "locale": "en",
+    "hide_top_toolbar": true,
+    "hide_legend": true,
+    "save_image": false,
+    "container_id": "xrp_graph"
+});
 
-const remainSeconds = 59 - seconds;
-
-const text =
-"⏳ Փակվելուն մնաց → " +
-remainMinutes +
-":" +
-String(remainSeconds).padStart(2,'0');
-
-document.getElementById("timer1").innerHTML = text;
-document.getElementById("timer2").innerHTML = text;
-document.getElementById("timer3").innerHTML = text;
-document.getElementById("timer4").innerHTML = text;
-
-}
-
-setInterval(updateTimers,1000);
-
-updateTimers();
+new TradingView.widget({
+    "autosize": true,
+    "symbol": "BINANCE:DOGEUSDT",
+    "interval": "5",
+    "timezone": "Etc/UTC",
+    "theme": "dark",
+    "style": "1",
+    "locale": "en",
+    "hide_top_toolbar": true,
+    "hide_legend": true,
+    "save_image": false,
+    "container_id": "doge_graph"
+});
 
 </script>
 
