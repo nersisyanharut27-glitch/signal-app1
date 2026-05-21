@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Signal App</title>
@@ -12,23 +9,80 @@
 <style>
 
 body{
+    margin:0;
     background:#0f172a;
-    color:white;
     font-family:Arial;
-    padding:20px;
-}
-
-h1{
-    text-align:center;
-}
-
-.btn{
-    display:block;
-    background:#2563eb;
     color:white;
-    text-decoration:none;
+}
+
+.header{
     padding:20px;
-    margin-top:15px;
-    border-radius:15px;
     text-align:center;
-    font-size:
+    font-size:30px;
+    font-weight:bold;
+}
+
+.wrap{
+    padding:15px;
+}
+
+.card{
+    background:#1e293b;
+    padding:18px;
+    border-radius:20px;
+    margin-bottom:15px;
+    text-decoration:none;
+    color:white;
+    display:block;
+    font-size:24px;
+    font-weight:bold;
+    text-align:center;
+}
+
+iframe{
+    width:100%;
+    height:500px;
+    border:none;
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+🚀 SIGNAL APP
+</div>
+
+<div class="wrap">
+
+<a class="card" href="https://www.tradingview.com/chart/?symbol=BINANCE:BTCUSDT">
+📈 BTCUSDT
+</a>
+
+<iframe src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=5&theme=dark"></iframe>
+
+<a class="card" href="https://www.tradingview.com/chart/?symbol=BINANCE:ETHUSDT">
+📈 ETHUSDT
+</a>
+
+<iframe src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:ETHUSDT&interval=5&theme=dark"></iframe>
+
+<a class="card" href="https://www.tradingview.com/chart/?symbol=BINANCE:SOLUSDT">
+📈 SOLUSDT
+</a>
+
+<iframe src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:SOLUSDT&interval=5&theme=dark"></iframe>
+
+<a class="card" href="https://www.tradingview.com/chart/?symbol=BINANCE:BNBUSDT">
+📈 BNBUSDT
+</a>
+
+<iframe src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:BNBUSDT&interval=5&theme=dark"></iframe>
+
+</div>
+
+</body>
+</html>
