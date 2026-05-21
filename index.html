@@ -20,29 +20,29 @@ body{
 
 .card{
     background:#1e293b;
-    border-radius:20px;
-    padding:12px;
-    margin-bottom:14px;
+    border-radius:18px;
+    padding:10px;
+    margin-bottom:12px;
 }
 
 .title{
     text-align:center;
-    font-size:26px;
+    font-size:22px;
     font-weight:bold;
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
 .graph{
     width:100%;
     height:220px;
-    border-radius:15px;
+    border-radius:14px;
     overflow:hidden;
 }
 
 .timer{
-    margin-top:10px;
+    margin-top:8px;
     text-align:center;
-    font-size:28px;
+    font-size:18px;
     font-weight:bold;
     color:#22c55e;
 }
@@ -55,172 +55,153 @@ body{
 <!-- BTC -->
 
 <div class="card">
-
-    <div class="title">📈 BTCUSDT</div>
-
+    <div class="title">BTCUSDT</div>
     <div id="btc_graph" class="graph"></div>
-
-    <div class="timer">
-        ⏰ Փակվելու մնաց → 2:00
-    </div>
-
+    <div class="timer" id="timer"></div>
 </div>
 
 <!-- ETH -->
 
 <div class="card">
-
-    <div class="title">📈 ETHUSDT</div>
-
+    <div class="title">ETHUSDT</div>
     <div id="eth_graph" class="graph"></div>
-
-    <div class="timer">
-        ⏰ Փակվելու մնաց → 2:00
-    </div>
-
+    <div class="timer" id="timer2"></div>
 </div>
 
 <!-- SOL -->
 
 <div class="card">
-
-    <div class="title">📈 SOLUSDT</div>
-
+    <div class="title">SOLUSDT</div>
     <div id="sol_graph" class="graph"></div>
-
-    <div class="timer">
-        ⏰ Փակվելու մնաց → 2:00
-    </div>
-
+    <div class="timer" id="timer3"></div>
 </div>
 
 <!-- BNB -->
 
 <div class="card">
-
-    <div class="title">📈 BNBUSDT</div>
-
+    <div class="title">BNBUSDT</div>
     <div id="bnb_graph" class="graph"></div>
-
-    <div class="timer">
-        ⏰ Փակվելու մնաց → 2:00
-    </div>
-
+    <div class="timer" id="timer4"></div>
 </div>
 
 <!-- XRP -->
 
 <div class="card">
-
-    <div class="title">📈 XRPUSDT</div>
-
+    <div class="title">XRPUSDT</div>
     <div id="xrp_graph" class="graph"></div>
-
-    <div class="timer">
-        ⏰ Փակվելու մնաց → 2:00
-    </div>
-
+    <div class="timer" id="timer5"></div>
 </div>
 
 <!-- DOGE -->
 
 <div class="card">
-
-    <div class="title">📈 DOGEUSDT</div>
-
+    <div class="title">DOGEUSDT</div>
     <div id="doge_graph" class="graph"></div>
-
-    <div class="timer">
-        ⏰ Փակվելու մնաց → 2:00
-    </div>
-
+    <div class="timer" id="timer6"></div>
 </div>
 
 <script>
+
+function updateTimers(){
+
+    const now = new Date()
+
+    const seconds =
+        now.getUTCMinutes() * 60 +
+        now.getUTCSeconds()
+
+    let remaining = 300 - (seconds % 300)
+
+    if(remaining === 300){
+        remaining = 0
+    }
+
+    const mins = Math.floor(remaining / 60)
+    const secs = remaining % 60
+
+    const text =
+        "⏰ " +
+        String(mins).padStart(2,'0') +
+        ":" +
+        String(secs).padStart(2,'0')
+
+    document.getElementById("timer").innerHTML = text
+    document.getElementById("timer2").innerHTML = text
+    document.getElementById("timer3").innerHTML = text
+    document.getElementById("timer4").innerHTML = text
+    document.getElementById("timer5").innerHTML = text
+    document.getElementById("timer6").innerHTML = text
+}
+
+setInterval(updateTimers,1000)
+
+updateTimers()
 
 new TradingView.widget({
     "autosize": true,
     "symbol": "BINANCE:BTCUSDT",
     "interval": "5",
-    "timezone": "Etc/UTC",
     "theme": "dark",
     "style": "1",
-    "locale": "en",
     "hide_top_toolbar": true,
     "hide_legend": true,
-    "save_image": false,
     "container_id": "btc_graph"
-});
+})
 
 new TradingView.widget({
     "autosize": true,
     "symbol": "BINANCE:ETHUSDT",
     "interval": "5",
-    "timezone": "Etc/UTC",
     "theme": "dark",
     "style": "1",
-    "locale": "en",
     "hide_top_toolbar": true,
     "hide_legend": true,
-    "save_image": false,
     "container_id": "eth_graph"
-});
+})
 
 new TradingView.widget({
     "autosize": true,
     "symbol": "BINANCE:SOLUSDT",
     "interval": "5",
-    "timezone": "Etc/UTC",
     "theme": "dark",
     "style": "1",
-    "locale": "en",
     "hide_top_toolbar": true,
     "hide_legend": true,
-    "save_image": false,
     "container_id": "sol_graph"
-});
+})
 
 new TradingView.widget({
     "autosize": true,
     "symbol": "BINANCE:BNBUSDT",
     "interval": "5",
-    "timezone": "Etc/UTC",
     "theme": "dark",
     "style": "1",
-    "locale": "en",
     "hide_top_toolbar": true,
     "hide_legend": true,
-    "save_image": false,
     "container_id": "bnb_graph"
-});
+})
 
 new TradingView.widget({
     "autosize": true,
     "symbol": "BINANCE:XRPUSDT",
     "interval": "5",
-    "timezone": "Etc/UTC",
     "theme": "dark",
     "style": "1",
-    "locale": "en",
     "hide_top_toolbar": true,
     "hide_legend": true,
-    "save_image": false,
     "container_id": "xrp_graph"
-});
+})
 
 new TradingView.widget({
     "autosize": true,
     "symbol": "BINANCE:DOGEUSDT",
     "interval": "5",
-    "timezone": "Etc/UTC",
     "theme": "dark",
     "style": "1",
-    "locale": "en",
     "hide_top_toolbar": true,
     "hide_legend": true,
-    "save_image": false,
     "container_id": "doge_graph"
-});
+})
 
 </script>
 
